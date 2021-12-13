@@ -1,0 +1,98 @@
+{% extends 'store/base.html' %}
+{% block content %} 
+{% if user.is_superuser %}
+<h3 class="text-success">hello {{user.username}}</h3>
+{% else %}
+{% endif %}
+
+    <!-- #yourHeader -->
+    <header id="yourHeader" class="jumbotron jumbotron-fluid">
+        <div class="your-header-content container-fluid text-center text-white">
+            <div class="row">
+                <div class="your-header-text col">
+                    <h1 class="display-3">Deymotivo</h1>
+                    <p class="lead pb-4">The best gaming house</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="your-header-button col">
+                    <a href="#" class="your-btn-primary btn btn-info btn-lg rounded-pill" role="button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+<!-- #yourServices -->
+<section id="yourServices" class="container">
+    <h2 class="display-4 text-center mt-5 mb-3">Our Services</h2>
+    <div class="row text-center">
+       <div class="col-md-4 mb-4">
+          <div class="card h-100">
+             <img class="card-img-top" src="https://th.bing.com/th/id/OIP.VE2YUi8egMVXf5z4RGnSmgHaEq?w=242&h=180&c=7&r=0&o=5&pid=1.7" alt="Design" height="300">
+             <div class="card-body">
+                <h4 class="card-title">Game Repair</h4>
+                <p class="card-text">we offer the best game repair services
+
+                </p>
+             </div>
+             <div class="card-footer py-4">
+                <a href="#" class="your-btn-primary-outer btn btn-info rounded-pill">More Info</a>
+             </div>
+          </div>
+       </div>
+       
+       <div class="col-md-4 mb-4">
+          <div class="card h-100">
+             <img class="card-img-top" src="https://images.pexels.com/photos/5961216/pexels-photo-5961216.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Design" height="300">
+             <div class="card-body">
+                <h4 class="card-title">Game Downloads</h4>
+                <p class="card-text">we help you install all kinds of games on your gaming gadgets at an affordable price</p>
+             </div>
+             <div class="card-footer py-4">
+                <a href="#" class="your-btn-primary-outer btn btn-info rounded-pill">More Info</a>
+             </div>
+          </div>
+       </div>
+ 
+       <div class="col-md-4 mb-4">
+          <div class="card h-100">
+             <img class="card-img-top" src="https://images.pexels.com/photos/6534231/pexels-photo-6534231.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Design" height="300">
+             <div class="card-body">
+                <h4 class="card-title">Gaming Hub</h4>
+                <p class="card-text">we also offer a conducive gaming room equipped the whole generation of playstations
+                and standard games to play on rent
+                </p>
+             </div>
+             <div class="card-footer py-4">
+                <a href="#" class="your-btn-primary-outer btn btn-info rounded-pill">More Info</a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!-- end of #yourServices -->
+ 
+ <!-- #yourContact -->
+ <section id="yourContact" class="container-fluid text-center py-4 mt-4" id="contact">
+     <div class="row">
+         <div class="your-contact-text col">
+             <h2 class="display-4 pb-4 my-4">Get in touch!</h2>
+             <p class="lead pb-3">Some message how to get in touch with you.</p>
+         </div>
+     </div>
+     <div class="row">
+         <div class="your-contact-button col">
+             <a href="https://wa.me/09053116324" class="your-btn-primary btn btn-primary btn-lg rounded-pill mb-4" role="button">Contact Us</a>
+         </div>
+     </div>
+ </section>
+ <!-- end of #yourContact -->
+ 
+ <!-- #yourFooter -->
+ <footer id="yourFooter" class="bg-light">
+    <div class="container py-4">
+       <p class="text-center text-muted">Copyright &copy; 2021 Deymotivo</p>
+    </div>
+ </footer>
+ <!-- end of #yourFooter -->
+{% endblock content %}

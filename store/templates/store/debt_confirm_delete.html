@@ -1,0 +1,9 @@
+{% extends 'store/base.html' %}
+{% block content %} 
+<h1>are you sure you want to delete {{debt}} ?</h1>
+<a href="{% url 'debt_detail' debt.id %}" class="text-primary">No</a>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes</button>
+    </form>
+{% endblock content %}

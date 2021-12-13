@@ -1,0 +1,174 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <nav id="yourNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Deymotivo Digital</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yourNavbarContent" aria-controls="yourNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="yourNavbarContent">
+                {% if user.is_superuser %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home' %}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'debt_create' %}">Create</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'debt_list' %}">Debtors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                </ul>
+                {% elif user.is_authenticated %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home' %}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'home' %}">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                </ul>
+                {% endif %}
+
+
+         
+            </div>
+        </div>
+    </nav>
+    <!-- end of #yourNavbar -->
+    <div class="text-success">
+    {% if messages %} 
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {%endfor%}
+    {% endif %}
+    </div>
+
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+
+body {
+	background-color:wheat;
+	font-family: Lato, Sans-serif;
+	padding-top: 56px; /* add some space for fixed-top navbar */
+}
+
+/* your-btn-primary */
+.your-btn-primary {
+	display: inline-block;
+	height: 40px;
+	margin: 0 5px;
+	padding: 0 40px;
+	background: #008080;
+	border: 0;
+	font-size: 15px;
+	font-weight: 300;
+	color: #cce5e5;
+	line-height: 40px;
+	text-transform: uppercase;
+	opacity: 0.8;
+	transition: all 0.4s ease !important;
+}
+.your-btn-primary:hover,
+.your-btn-primary:focus,
+.your-btn-primary:active,
+.your-btn-primary:active:focus,
+.your-btn-primary.btn-primary:not(:disabled):not(.disabled):active,
+.your-btn-primary.btn-primary:not(:disabled):not(.disabled):active:focus {
+	background: #008080;
+	outline: 0;
+	color: #ffffff;
+	box-shadow: none;
+	opacity: 1;
+}
+
+/* your-btn-primary-outer */
+.your-btn-primary-outer {
+	background-color: #008080;
+    border-color: #008080;
+    color: #cce5e5;
+	transition: all 0.4s ease !important;
+}
+.your-btn-primary-outer:hover,
+.your-btn-primary-outer:focus,
+.your-btn-primary-outer:active,
+.your-btn-primary-outer:active:focus,
+.your-btn-primary-outer.btn-primary:not(:disabled):not(.disabled):active,
+#yourServices
+	.your-btn-primary-outer.btn-primary:not(:disabled):not(.disabled):active:focus {
+	background-color: #006767;
+    border-color: #006767;
+    color: #ffffff;
+}
+
+/* yourNavbar */
+#yourNavbar {
+	background-color: #008080; /* For browsers that do not support gradients */
+	background-image: linear-gradient(135deg, #003434, #008080, #00cdcd);
+}
+
+/* yourHeader */
+#yourHeader {
+	background-image: url("https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#yourHeader .your-header-text h1,
+#yourHeader .your-header-text p {
+	text-shadow: 2px 2px 4px #000;
+}
+
+/* yourContact */
+#yourContact {
+    background: url("https://www.bing.com/th?id=OIP.63HhNcHnhJV9u73sPuds9QHaDo&w=217&h=105&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2");
+    background-position: center;
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+#yourContact .your-contact-text h2,
+#yourContact .your-contact-text p {
+	color: #ffffff;
+    text-shadow: 2px 2px 4px #000;
+}
+</style>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

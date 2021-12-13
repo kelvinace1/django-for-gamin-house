@@ -1,0 +1,35 @@
+{% extends 'store/base.html' %}
+{% block content %} 
+
+
+<div></div>
+<div></div>
+<div></div>
+<div class="">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>name</th>
+          <th>amount</th>
+          <th>paid</th>
+          <th>balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for debt in debts %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td><a href="{% url 'debt_detail' debt.id %}" class="text-muted">{{debt.name}}</a></td>
+          <td>₦{{debt.amount}}</td>
+          <td>₦{{debt.paid}}</td>
+          <td>₦{{debt.balance}}</td>
+        </tr>
+        
+{% endfor %}
+
+    
+    </table>
+
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'store/base.html' %}
+{% block content %} 
+<div class="">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>amount</th>
+          <th>paid</th>
+          <th>balance</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{object.name}}</td>
+          <td>₦{{object.amount}}</td>
+          <td>₦{{object.paid}}</td>
+          <td>₦{{object.balance}}</td>
+          <td>{{object.date}}</td>
+          <td><a href="{% url 'debt_update' debt.id %}"><i class="material-icons" style="font-size:36px;color: green;">compare_arrows</i></a></td>
+          <td><a href="{% url 'debt_delete' debt.id %}"><i class="material-icons" style="font-size:36px;color:red;">delete</i></a></td>
+        </tr>
+
+    
+    </table>
+    
+{% endblock content %}
